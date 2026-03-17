@@ -1,2 +1,4 @@
 # Dataset pesado - debe descargarse manualmente desde Kaggle
 data/dataset.csv
+# Checkpoints de Jupyter
+notebooks/.ipynb_checkpoints/

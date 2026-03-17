@@ -29,60 +29,119 @@ parcial1-pyspark-KevinG47/
 ├── notebooks/analisis_exploratorio.ipynb
 └── README.md
 ```
-
 ## Cómo ejecutar el proyecto paso a paso
-
-Sigue estos pasos en orden para correr el proyecto sin problemas:
 
 ### Requisitos previos
 Antes de empezar asegúrate de tener instalado:
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) 
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Git](https://git-scm.com/downloads)
+- [Visual Studio Code](https://code.visualstudio.com/) (recomendado)
+
+---
 
 ### Paso 1 - Clonar el repositorio
-Abre una terminal y ejecuta:
+
+1. Abre **Visual Studio Code**
+2. En el menú superior haz clic en **Terminal** → **New Terminal**  
+   (se abrirá una ventana negra en la parte inferior de la pantalla)
+3. En esa terminal escribe el siguiente comando y presiona Enter:
 ```bash
 git clone https://github.com/KevinG47/parcial1-pyspark-KevinG47.git
+```
+4. Esto creará una carpeta llamada `parcial1-pyspark-KevinG47` en tu computador
+5. Ahora entra a esa carpeta con este comando:
+```bash
 cd parcial1-pyspark-KevinG47
 ```
 
+---
+
 ### Paso 2 - Descargar el dataset
-1. Ir a: https://www.kaggle.com/datasets/josetroyatoscano/covid19-colombia-complete-dataset-dec-2023
-2. Crear una cuenta en Kaggle si no tienes una (es gratis)
-3. Descargar el archivo CSV
-4. Renombrarlo a `dataset.csv`
-5. Copiarlo dentro de la carpeta `data/`
+1. Entra a este enlace:  
+   https://www.kaggle.com/datasets/josetroyatoscano/covid19-colombia-complete-dataset-dec-2023
+2. Si no tienes cuenta en Kaggle, créala gratis con tu correo
+3. Haz clic en el botón **Download** (arriba a la derecha)
+4. Se descargará un archivo comprimido, descomprímelo
+5. Busca el archivo `.csv` que salió al descomprimir
+6. **Renómbralo** a `dataset.csv` (clic derecho → Cambiar nombre)
+7. **Muévelo** a la carpeta `data/` que está dentro del proyecto  
+   La ruta debe quedar así: `parcial1-pyspark-KevinG47/data/dataset.csv`
+
+---
 
 ### Paso 3 - Abrir Docker Desktop
-Abre Docker Desktop y espera a que esté corriendo 
-(el ícono de la ballena debe estar estable, no animado)
+1. Busca **Docker Desktop** en tu computador y ábrelo
+2. Espera hasta que el ícono de la ballena en la barra de tareas 
+   esté quieto (no animado) — eso significa que Docker está listo
+3. No cierres Docker Desktop mientras trabajas
+
+---
 
 ### Paso 4 - Levantar el contenedor
-En la terminal, estando dentro de la carpeta del proyecto ejecuta:
+1. Vuelve a la terminal de VS Code que abriste en el Paso 1
+2. Asegúrate de estar dentro de la carpeta del proyecto  
+   (la terminal debe mostrar algo como `parcial1-pyspark-KevinG47>`)
+3. Escribe este comando y presiona Enter:
 ```bash
 docker-compose up
 ```
-La primera vez puede tardar varios minutos porque descarga la imagen. 
-Es normal, hay que esperar.
-
-### Paso 5 - Abrir JupyterLab
-Cuando en la terminal aparezca un mensaje con una URL como esta:
+4. La **primera vez** puede tardar entre 5 y 15 minutos porque 
+   descarga todo lo necesario. Es completamente normal, hay que esperar.
+5. Sabrás que está listo cuando veas un mensaje así en la terminal:
 ```
 http://127.0.0.1:8888/lab?token=...
 ```
-Copia esa URL completa (con el token) y pégala en el navegador.
 
-### Paso 6 - Abrir el notebook
-1. En el panel izquierdo de JupyterLab hacer doble clic en la carpeta `work`
-2. Luego doble clic en `notebooks`
-3. Abrir el archivo `analisis_exploratorio.ipynb`
-4. Ejecutar todas las celdas con: `Kernel` → `Restart Kernel and Run All Cells`
+---
 
-### Para detener el contenedor
-Cuando termines, en la terminal presiona `Ctrl + C` y luego ejecuta:
+### Paso 5 - Abrir JupyterLab en el navegador
+1. En la terminal busca la línea que dice:  
+   `http://127.0.0.1:8888/lab?token=...`
+2. Copia esa línea completa (incluyendo el token)
+3. Abre tu navegador (Chrome, Firefox, Edge)
+4. Pega la URL en la barra de direcciones y presiona Enter
+5. Se abrirá JupyterLab — una interfaz parecida a un bloc de notas 
+   pero para código
+
+---
+
+### Paso 6 - Abrir y ejecutar el notebook
+1. En el panel izquierdo de JupyterLab verás una carpeta llamada `work`
+2. Haz doble clic en `work`
+3. Luego doble clic en `notebooks`
+4. Haz doble clic en el archivo `analisis_exploratorio.ipynb`
+5. Para ejecutar todo el análisis ve al menú superior:  
+   **Kernel** → **Restart Kernel and Run All Cells**
+6. Confirma haciendo clic en **Restart** cuando te lo pida
+7. Espera unos minutos mientras corre todo el análisis
+
+---
+
+### Para detener el proyecto cuando termines
+1. Vuelve a la terminal de VS Code
+2. Presiona `Ctrl + C` para detener el contenedor
+3. Luego ejecuta:
 ```bash
 docker-compose down
 ```
+Esto apaga el contenedor correctamente y libera recursos de tu computador.
+
+---
+
+### Problemas frecuentes
+
+**Docker no arranca:**  
+Asegúrate de que Docker Desktop esté abierto y corriendo antes de 
+ejecutar `docker-compose up`
+
+**La URL no abre en el navegador:**  
+Copia la URL completa desde la terminal, incluyendo el token 
+(la parte que dice `?token=...`)
+
+**El dataset no carga:**  
+Verifica que el archivo se llame exactamente `dataset.csv` y esté 
+dentro de la carpeta `data/`
+
 
 ## Contenido del notebook
 1. Introducción y contexto del dataset
