@@ -128,6 +128,11 @@ Esto apaga el contenedor correctamente y libera recursos de tu computador.
 
 ---
 
+## Informe
+El informe completo del análisis está disponible en:
+`docs/Informe_COVID19_Colombia_KevinChaparro.pdf`
+
+
 ### Problemas frecuentes
 
 **Docker no arranca:**  
